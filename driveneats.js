@@ -99,7 +99,7 @@ function enviarPedido() {
     - Prato: ${pratoE}
     - Bebida: ${bebidaE}
     - Sobremesa: ${sobremesaE}
-    Total: R$ ${valorTotal}
+    Total: R$${valorTotal}
     
     Nome: ${nome}
     Endereço: ${endereco}`
