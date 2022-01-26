@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <title>DrivenEats</title>
+</head>
+
+<body>
+    <div data-identifier="confirmation-dialog" class="confirmarPedido escondido">
+        <div class="confirmacao">
+            <span class="confC">Confirme seu pedido</span>
+            <div class="C">
+                <div class="pratoC">
+                    <span class="pratoEscolhido">Comida</span>
+                    <span class="valorPrato"></span>
+                </div>
+                <div class="bebidaC">
+                    <span class="bebidaEscolhida">Bebida</span>
+                    <span class="valorBebida"></span>
+                </div>
+                <div class="sobremesaC">
+                    <span class="sobremesaEscolhida">Sobremesa</span>
+                    <span class="valorSobremesa"></span>
+                </div>
+                <div class="totalC">
+                    <span>TOTAL</span>
+                    <span class="valorTotal"></span>
+                </div>
+            </div>
+            <button class="botaoC" onclick="enviarPedido()">
+                <span>Tudo certo, pode pedir!</span>
+            </button>
+            <div class="cancelar" onclick="cancelarPedido()">Cancelar</div>
+        </div>
+    </div>
+    <div class="topo">
+        <h1>DrivenEats</h1>
+        <span>Sua comida em 6 minutos</span>
+    </div>
+    <div class="corpo">
+        
+        <h1 class="primeiro">Primeiro, seu prato</h1>
+        <div data-identifier="dishes" class="prato">
+            <button data-identifier="food-option" class="selPrato" onclick="pratoSelecionada(this)">
+                <div class="foto">
+                    <img src="assets/frango.png">
+                </div>
+                <div data-identifier="food-title" class="titulo">
+                    Frango com aipim
+                </div>
+                <div class="descricao">
+                    Frango e aipim frito
+                </div>
+                <div data-identifier="food-price" class="valor">
+                    35.90
+                </div>
+                <ion-icon name="checkmark-circle-sharp" class="checked"></ion-icon>
+            </button>
+
+            <button data-identifier="food-option" class="selPrato" onclick="pratoSelecionada(this)">
+                <div class="foto">
+                    <img src="assets/costela.jpg">
+                </div>
+                <div data-identifier="food-title" class="titulo">
+                    Costela assada 
+                </div>
+                <div class="descricao">
+                    Costela e barbecue
+                </div>
+                <div data-identifier="food-price" class="valor">
+                    44.90
+                </div>
+                <ion-icon name="checkmark-circle-sharp" class="checked checkmark"></ion-icon>
+            </button>
+
+            <button data-identifier="food-option" class="selPrato" onclick="pratoSelecionada(this)">
+                <div class="foto">
+                    <img src="assets/parmegiana.png">
+                </div>
+                <div data-identifier="food-title" class="titulo">
+                    Frango parmegiana
+                </div>
+                <div class="descricao">
+                    Frango, arroz e fritas
+                </div>
+                <div data-identifier="food-price" class="valor">
+                    24.90
+                </div>
+                <ion-icon name="checkmark-circle-sharp" class="checked checkmark"></ion-icon>
+            </button>
+        </div>
+        
+        <h1>Agora, sua bebida</h1>
+        <div data-identifier="drinks" class="bebida">
+            <button data-identifier="food-option" class="selBebida" onclick="bebidaSelecionada(this)">
+                    <div class="foto">
+                        <img src="assets/agua.jpg">
+                    </div>
+                    <div data-identifier="food-title" class="titulo">
+                        Água 
+                    </div>
+                    <div class="descricao">
+                        Garrafa 400mL
+                    </div>
+                    <div data-identifier="food-price" class="valor">
+                        3.90
+                    </div>
+                    <ion-icon name="checkmark-circle-sharp" class="checked"></ion-icon>
+            </button>
+    
+            <button data-identifier="food-option" class="selBebida" onclick="bebidaSelecionada(this)">
+                    <div class="foto">
+                        <img src="assets/sucos.jpg">
+                    </div>
+                    <div data-identifier="food-title" class="titulo">
+                        Suco
+                    </div>
+                    <div class="descricao">
+                        Diversos sabores
+                    </div>
+                    <div data-identifier="food-price" class="valor">
+                        5.90
+                    </div>
+                    <ion-icon name="checkmark-circle-sharp" class="checked"></ion-icon>
+            </button>
+    
+            <button data-identifier="food-option" class="selBebida" onclick="bebidaSelecionada(this)">
+                    <div class="foto">
+                        <img src="assets/coquinha_gelada 1.png">
+                    </div>
+                    <div data-identifier="food-title" class="titulo">
+                        Refrigerante
+                    </div>
+                    <div class="descricao">
+                        Lata 350 mL
+                    </div>
+                    <div data-identifier="food-price" class="valor">
+                        5.90
+                    </div>
+                    <ion-icon name="checkmark-circle-sharp" class="checked"></ion-icon>
+            </button>
+        </div>
+        
+        <h1>Por fim, sua sobremesa</h1>
+        <div data-identifier="desserts" class="sobremesa">
+            <button data-identifier="food-option" class="selSobremesa" onclick="sobremesaSelecionada(this)">
+                    <div class="foto">
+                        <img src="assets/pudim 1.png">
+                    </div>
+                    <div data-identifier="food-title" class="titulo">
+                        Pudim 
+                    </div>
+                    <div class="descricao">
+                        Pudim comum
+                    </div>
+                    <div data-identifier="food-price" class="valor">
+                        6.90
+                    </div>
+                    <ion-icon name="checkmark-circle-sharp" class="checked"></ion-icon>
+            </button>
+    
+            <button data-identifier="food-option" class="selSobremesa" onclick="sobremesaSelecionada(this)">
+                    <div class="foto">
+                        <img src="assets/brigadeiro.png">
+                    </div>
+                    <div data-identifier="food-title" class="titulo">
+                        Brigadeiro
+                    </div>
+                    <div class="descricao">
+                        Outros sabores
+                    </div>
+                    <div data-identifier="food-price" class="valor">
+                        4.90
+                    </div>
+                    <ion-icon name="checkmark-circle-sharp" class="checked"></ion-icon>
+            </button>
+    
+            <button data-identifier="food-option" class="selSobremesa" onclick="sobremesaSelecionada(this)">
+                    <div class="foto">
+                        <img src="assets/picole.jpg">
+                    </div>
+                    <div data-identifier="food-title" class="titulo">
+                        Picolé
+                    </div>
+                    <div class="descricao">
+                        Marcas variadas
+                    </div>
+                    <div data-identifier="food-price" class="valor">
+                        5.90
+                    </div>
+                    <ion-icon name="checkmark-circle-sharp" class="checked"></ion-icon>
+            </button> 
+        </div>
+
+    </div>
+    <div class="base">
+        <button disabled="disabled" class="botao confirmado" onclick="confirmarPedido()">
+            Selecione os 3 itens para fechar o pedido
+        </button>
+    </div>
+    <script src="driveneats.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>
